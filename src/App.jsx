@@ -1,10 +1,27 @@
 import './App.css'
+import './styles/common.css'
+import Increment from './components/Increment'
+import Decrement from './components/Decrement'
+import { useSelector, useDispatch } from 'react-redux'
+import { reset } from './store/actions/counter'
 
 function App() {
+  const count = useSelector((store) => store.count)
+  const dispatch = useDispatch()
+
   return (
-    <>
-      <h1>Redux</h1>
-    </>
+    <div className='container'>
+      <h1>App</h1>
+      <p className='counter'>{count}</p>
+      <button
+        id='reset-btn'
+        onClick={() => dispatch(reset())}
+      >Reset</button>
+      <div className='flex'>
+        <Increment />
+        <Decrement />
+      </div>
+    </div>
   )
 }
 
@@ -52,6 +69,14 @@ export default App
         - Subscribe: Components can 'subscribe' to the store to get notified about state updates, post which, it can re-render with the updated state value
         - Dispatch: Components can 'dispatch' action objects to perform certain state updates
 
+    - React-Redux:
+      - 'Provider' component: This component wraps the complete react app and provides store access to all the components
+        Syntax: <Provider store={store}><App /></Provider>
+      - 'useSelector' hook: Used within the components to access the redux store
+        Syntax: const count = useSelector((store) => store.count)
+      - 'useDispatch' hook: Used within the components to get access to 'dispatch' method, which can further be used to dispatch action objects
+
     - References:
-      - https://redux.js.org/
+      - Redux: https://redux.js.org/
+      - React-Redux: https://react-redux.js.org/introduction/getting-started
 */
