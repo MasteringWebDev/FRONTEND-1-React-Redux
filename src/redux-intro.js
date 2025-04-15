@@ -53,6 +53,12 @@ console.log(store.getState())
     - npm: 'redux'
     - createStore: Used to create redux store from reducer function(s)
       - Syntax: const store = createStore(reducerFunction)
+    - combineReducers: Used to combine multiple reducers to a single root reducer
+      - Syntax: const rootReducer = combineReducers({
+                  reducer1,
+                  reducer2,
+                  ...
+                })
 
     - store.subscribe(): Subscribe to the store
     - store.dispatch(): Dispatch the actions

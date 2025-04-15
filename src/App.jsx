@@ -2,11 +2,13 @@ import './App.css'
 import './styles/common.css'
 import Increment from './components/Increment'
 import Decrement from './components/Decrement'
+import User from './components/User'
+import Users from './components/Users'
 import { useSelector, useDispatch } from 'react-redux'
 import { reset } from './store/actions/counter'
 
 function App() {
-  const count = useSelector((store) => store.count)
+  const count = useSelector((store) => store.counter.count)
   const dispatch = useDispatch()
 
   return (
@@ -21,6 +23,8 @@ function App() {
         <Increment />
         <Decrement />
       </div>
+      <User />
+      <Users />
     </div>
   )
 }
